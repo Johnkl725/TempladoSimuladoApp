@@ -43,6 +43,14 @@ jobs:
           git config --global user.name "Johnkl725"
           git config --global user.email "john.castillo1@unmsm.edu.pe"
 
+      # Configura el GitHub token para autenticación
+      - name: Set up GitHub token
+        run: |
+          git config --global user.name "Johnkl725"
+          git config --global user.email "john.castillo1@unmsm.edu.pe"
+          git config --global credential.helper store
+          echo "https://Johnkl725:${{ secrets.GITHUB_TOKEN }}@github.com" > ~/.git-credentials
+
       # Construye la aplicación React
       - name: Build the app
         run: npm run build
@@ -53,4 +61,4 @@ jobs:
           npm install gh-pages --save-dev  # Instala gh-pages para el despliegue
           npm run deploy                  # Despliega la aplicación a GitHub Pages
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
