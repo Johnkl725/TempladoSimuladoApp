@@ -52,3 +52,5 @@ jobs:
         run: |
           npm install gh-pages --save-dev  # Instala gh-pages para el despliegue
           npm run deploy                  # Despliega la aplicación a GitHub Pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
