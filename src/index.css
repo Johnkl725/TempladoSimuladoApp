@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.container {
+  text-align: center;
+  margin: 20px;
+}
+
+.page {
+  position: relative;
+  width: 800px;
+  height: 600px;
+  border: 1px solid #ccc;
+  margin: 0 auto;
+  background-color: #f9f9f9;
+}
+
+.element {
+  position: absolute;
+  border: 1px solid #000;
+  background-color: #fff;
+  text-align: center;
+  line-height: 50px;
+  overflow: hidden;
+  font-size: 14px;
+  box-sizing: border-box;
+}
