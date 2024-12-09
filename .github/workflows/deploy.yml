@@ -37,6 +37,12 @@ jobs:
       - name: Disable CI for warnings
         run: echo "CI=false" >> $GITHUB_ENV
 
+      # Configura la identidad de Git para el despliegue
+      - name: Set Git identity
+        run: |
+          git config --global user.name "Johnkl725"
+          git config --global user.email "john.castillo1@unmsm.edu.pe"
+
       # Construye la aplicación React
       - name: Build the app
         run: npm run build
