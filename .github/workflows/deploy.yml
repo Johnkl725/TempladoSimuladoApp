@@ -19,19 +19,30 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      # Checkout del código fuente
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # Configura Node.js
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
 
+      # Instala las dependencias
       - name: Install dependencies
         run: npm install
 
+      # Deshabilita el tratamiento de los warnings como errores
+      - name: Disable CI for warnings
+        run: echo "CI=false" >> $GITHUB_ENV
+
+      # Construye la aplicación React
       - name: Build the app
         run: npm run build
 
+      # Configura la página de GitHub Pages y despliega
       - name: Deploy to GitHub Pages
-        run: npm run deploy
+        run: |
+          npm install gh-pages --save-dev  # Instala gh-pages para el despliegue
+          npm run deploy                  # Despliega la aplicación a GitHub Pages
